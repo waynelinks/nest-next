@@ -1,8 +1,8 @@
-name: Deploy to Vercel
+name: Deploy to Vercel (staging) - Auth
 
 on:
   push:
-    branches:
+    branches-ignore:
       - "main"
     paths:
       - ".github/workflows/deploy-auth-staging.yml"
