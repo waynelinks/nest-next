@@ -12,6 +12,8 @@ env:
 jobs:
   vercel:
     runs-on: ubuntu-latest
+    permissions: 
+      deployments: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -43,7 +45,7 @@ jobs:
         run: npm run test
 
       - name: start deployment
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v1
         id: deployment
         with:
           step: start
@@ -79,7 +81,7 @@ jobs:
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: update deployment status
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v1
         if: always()
         with:
           step: finish
